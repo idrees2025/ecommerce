@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}
+home  
+{% endblock %}
+{% block content %}
+<section class="hero">
+  {% if user.is_authenticated %}
+    <div>
+      <h1> Welcome to my Website</h1>
+      <p>Catchy subheading goes here</p>
+    </div>
+  {% else %}
+      <div>
+        <h1>Please go and Login in <a href="{% url 'login' %}">LOG IN</a></h1>
+      </div>
+  {% endif %}
+</section>
+{% endblock %}

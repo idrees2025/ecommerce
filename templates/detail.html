@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}detail{% endblock %}
+{% block content %}
+<br>
+<div class="container row gap-3">
+    <img style="width: 27cm; height:15cm;" src="{{product.main_image}}" alt="">
+</div>
+<div class="container">
+    {% for img in product.images.all %}
+      <img style="width: 3cm; height:3cm;" src="{{img.p_image.url}}" alt="">
+    {% endfor %}
+</div>
+<div class="container">
+    <h5 class="card-title">{{product.p_title}}</h5>
+    <p class="card-text">Rs {{product.p_price}}</p>
+    {% if product.p_category == 'huddie' %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <select name="color">
+            <option>blue</option>
+            <option >White</option>
+            <option >black</option>
+            <option>red</option>
+            <option >green</option>
+        </select>
+        <br>
+        <select name="size">
+            <option >S</option>
+            <option >M</option>
+            <option >L</option>
+            <option >XL</option>
+        </select>
+        <br>
+        <button class="btn btn-primary" type="submit">Add to Cart</button>
+    </form>
+    {% else %}
+      <a class="btn btn-primary" href="{% url 'addtocart' product.id %}">Add To Cart</a>
+       {% endif %}
+    <p>{{product.p_dsc}}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+LEDS Page
+{% endblock  %}
+{% block content %}
+<div class="container row gap-3">
+  {% for led in leds %}
+    <div class="card" style="width: 18rem;">
+      <a href="{% url 'detail' led.pk %}" style="text-decoration: none;color:black;">
+        <img style="height: 6cm;" src="{{led.main_image }}" class="card-img-top" alt="...">
+       <div class="card-body">
+         <h5 class="card-title">{{led.p_title}}</h5>
+          <p class="card-text">Rs {{led.p_price}} </p>
+       </div>
+       </a>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

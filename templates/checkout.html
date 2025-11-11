@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %} checkout {% endblock %}
+{% block content %}
+<div class="container">
+    {% if item %}
+    <div class="container">
+        {% for items in item %}
+      <img style="width: auto; height:3cm;" src="{{items.product.main_image }}" alt=""> <br>
+    name :  {{items.product.p_title}} <br>
+    price : {{items.product.p_price}} <br>
+    {% if items.product.p_category == "huddie" %}
+    size : {{items.size}} <br>
+    color : {{items.color}} <br>
+    {% endif %}
+    quantity :  {{items.quantity}} = {{items.total}}<br>
+    {% endfor %}
+    total = {{total}} <br> 
+      <a class="btn btn-success" href="">Pay now</a><br> 
+    </div>
+{% else %}
+    <h1>Go to add a product</h1>
+{% endif %}
+</div>
+{% endblock %}

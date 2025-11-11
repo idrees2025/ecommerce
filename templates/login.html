@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div style="justify-content: center; display:flex;">
+    <form action="" method="post">
+        {% csrf_token %}
+        <br>
+        <h1>Login</h1>
+        <br>
+       <div>
+            <label for="{{form.username.id_for_label}}">Username</label> <br>
+            <input style="width: 8cm;" type="text" id="{{form.username.id}}" name="{{form.username.name}}" required placeholder="Enter your username"> <br>
+            <span style="color: red;">{{form.username.errors}}</span> <br>
+        </div>
+
+       <div>
+            <label for="{{form.password.id_for_label}}"> Password</label> <br>
+            <input style="width: 8cm;" type="password" id="{{form.password.id}}" name="{{form.password.name}}" required placeholder="Enter your password"> <br>
+            <span style="color: red;">{{form.password.errors}}</span> <br>
+        </div>
+        Don`t have an account ? <a href="{% url 'register' %}">click here</a> <br> <br>
+        <input class="btn btn-success" type="submit" value="Register">
+    </form>
+</div>
+
+{% endblock %}

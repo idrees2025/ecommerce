@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<div style="justify-content: center; display:flex;">
+    <form action="" method="post">
+        {% csrf_token %}
+        <br>
+        <h1>Registration</h1>
+        <br>
+        <div>
+            <label for="{{form.username.id_for_label}}">Username</label> <br>
+            <input style="width: 8cm;" type="text" id="{{form.username.id}}" name="{{form.username.name}}" required placeholder="Enter Username"> <br>
+            <span style="color: red;">{{form.username.errors}}</span> <br>
+        </div>
+
+       <div>
+            <label for="{{form.email.id_for_label}}">Email</label> <br>
+            <input style="width: 8cm;" type="email" id="{{form.email.id}}" name="{{form.email.name}}" required placeholder="Enter Email"> <br>
+            <span style="color: red;">{{form.email.errors}}</span> <br>
+        </div>
+
+       <div>
+            <label for="{{form.password1.id_for_label}}">Password</label> <br>
+            <input style="width: 8cm;" type="password" id="{{form.password1.id}}" name="{{form.password1.name}}" required placeholder="Enter Password"> <br>
+            <span style="color: red;">{{form.password1.errors}}</span> <br>
+        </div>
+
+       <div>
+            <label for="{{form.password2.id_for_label}}">Re-Type Password</label> <br>
+            <input style="width: 8cm;" type="password" id="{{form.password2.id}}" name="{{form.password2.name}}" required placeholder="Enter Again Password"> <br>
+            <span style="color: red;">{{form.password2.errors}}</span> <br>
+        </div>
+        Already have an account ? <a href="{% url 'login' %}">click here</a> <br> <br>
+        <input class="btn btn-success" type="submit" value="Register">
+    </form>
+</div>
+{% endblock %}

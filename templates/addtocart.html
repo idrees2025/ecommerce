@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} my cart {% endblock %}
+{% block content %}
+<div class="container">
+    {% if c_item %}
+    <div class="container">
+        {% for item in c_item %}
+      <a class="btn btn-danger" href="{% url 'remove' item.id %}">X</a> <br>
+      <img style="width: auto; height:3cm;" src="{{item.product.main_image }}" alt=""> <br>
+    name :  {{item.product.p_title}} <br>
+    price : {{item.product.p_price}} <br>
+    {% if item.product.p_category == "huddie" %}
+    size : {{item.size}} <br>
+    color : {{item.color}} <br>
+    {% endif %}
+    quantity : <a class="btn btn-primary" href="{% url 'increase' item.id %}">+</a> {{item.quantity}} <a class="btn btn-primary" href="{% url 'decrease' item.id %}">-</a> = {{item.total}}<br>
+    {% endfor %}
+    total = {{total}} <br> 
+      <a class="btn btn-success" href="{% url 'checkout' %}">Buy</a><br> 
+    </div>
+{% else %}
+    <h1>Go to add a product</h1>
+{% endif %}
+</div>
+{% endblock %}

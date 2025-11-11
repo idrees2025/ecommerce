@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+Keyboards Page
+{% endblock  %}
+{% block content %}
+<div class="container row gap-3">
+  {% for keyboards in keyboard %} 
+    <div class="card" style="width: 18rem;">
+      <a style="text-decoration: none;color:black;" href="{% url 'detail' keyboards.pk %}">
+        <img style="height: 6cm;" src="{{keyboards.main_image }}" class="card-img-top" alt="...">
+       <div class="card-body">
+         <h5 class="card-title">{{keyboards.p_title}}</h5>
+          <p class="card-text">Rs {{keyboards.p_price}} </p>
+       </div>
+       </a>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
