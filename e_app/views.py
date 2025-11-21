@@ -6,7 +6,6 @@ from django.shortcuts import render,redirect,get_object_or_404
 from .models import Products,CartItem
 from django.contrib.auth.forms import AuthenticationForm
 from django.views import View
-import stripe
 from django.views.generic import ListView
 # Create your views here.
 

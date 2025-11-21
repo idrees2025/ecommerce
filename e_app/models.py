@@ -15,7 +15,7 @@ class Products(models.Model):
     p_category=models.CharField(choices=PRODUCT_CATEGORIES,max_length=12)
     p_dsc=models.TextField()
     p_price=models.IntegerField(max_length=222)
-
+        
     def __str__(self):
         return self.p_category    
 
